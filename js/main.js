@@ -14,8 +14,13 @@ function presionaTeclas(event){
 
 function direcciones(event){
   if(event.keyCode==39){
-    console.log(figuraSnake.style.offsetX);
-    figuraSnake.style.width +="100px";
+    var nuevoNodo= document.createElement("p");
+    nuevoNodo.id="snake";
+    cuadroSnake.appendChild(nuevoNodo);
+    console.log(nuevoNodo);
+    console.log(figuraSnake.offsetX);
+    figuraSnake.offsetY += "100px";
+    //figuraSnake.style.width +="100px";
     console.log("se movio a la derecha");
   }else if (event.keyCode==37) {
     console.log("Se movio a la izquierda");
