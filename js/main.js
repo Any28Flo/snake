@@ -1,55 +1,45 @@
-var evento1 = document.getElementById('lienzo');
-evento1.addEventListener("keydown",direcciones);
-
+document.addEventListener("keydown",direcciones);
 var figuraSnake = document.getElementById("snake");
-var snake=document.getElementById("cuadroSnake");
-var moviemiento_x = 0;
-var moviemiento_y= 0;
-
-
-function presionaTeclas(event){
-  console.log(event);
-}
-
+var movimiento_x = 0;
+var movimiento_y = 0;
 function direcciones(event){
-  var codigoFlecha= event.keyCode;
+  var codigoFlecha = event.keyCode;
   switch (codigoFlecha) {
     case 39:
-      moviemiento_x+=50;
-      figuraSnake.style.marginLeft= moviemiento_x +"px";
+      movimiento_x+=50;
+      if(movimiento_x>450){
+        alert("game over x.x");
+      }else {
+        figuraSnake.style.marginLeft= movimiento_x +"px";
+      }
       break;
     case 37:
-      moviemiento_x-=50;
-      figuraSnake.style.marginLeft= moviemiento_x+"px";
+      movimiento_x-=50;
+      if(movimiento_x < 0)
+      {
+        alert("game over x.x");
+      }else{
+        figuraSnake.style.marginLeft= movimiento_x+"px";
+      }
+      break;
+    case  38:
+      movimiento_y-=50;
+      if(movimiento_y < 0)
+      {
+        alert("game over x.x");
+      }else {
+        figuraSnake.style.marginTop = movimiento_y+"px";
+      }
       break;
     case 40:
-      moviemiento_y+=50;
-      snake.style.marginTop = moviemiento_y+"px";
+      movimiento_y+=50;
+      if (movimiento_y > 450 ){
+        alert("game over x.x");
+      }else {
+        figuraSnake.style.marginTop = movimiento_y+"px";
+      }
       break;
     default:
     alert("Tecla equivoda");
-
   }
 }
-//
-//   if(event.keyCode==39){
-//     //var nuevoNodo= document.createElement("p");
-//     //nuevoNodo.id="snake";
-//     //cuadroSnake.appendChild(nuevoNodo);
-//     console.log(nuevoNodo);
-//     console.log(figuraSnake.offsetX);
-//     figuraSnake.offsetY += "100px";
-//     //figuraSnake.style.width +="100px";
-//     console.log("se movio a la derecha");
-//   }else if (event.keyCode==37) {
-//     console.log("Se movio a la izquierda");
-//
-//   }else if (event.keyCode==40) {
-//     console.log("se movio hacia abajo");
-//
-//   }else if (event.keyCode==38) {
-//     console.log("Se movio hacia ariba ");
-//   }else {
-//     alert("Tecla equivoda")
-//   }
-// }
